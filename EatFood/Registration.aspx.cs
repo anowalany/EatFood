@@ -18,11 +18,12 @@ public partial class Registration : System.Web.UI.Page
             string checkuser="select count(*) from UserData where Login='"+ TextBoxLogin.Text +"'";
             SqlCommand com = new SqlCommand(checkuser, conn);
             int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
+            conn.Close();
             if (temp == 1)
             {
                 Response.Write("Istnieje użytkownik o podanym loginie");
             }
-            conn.Close();
+            
         }
     }
 
@@ -30,16 +31,20 @@ public partial class Registration : System.Web.UI.Page
     {
         try
         {
+            Guid newGUID = Guid.NewGuid();
+
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
-            string insertQuery = "insert into UserData (Login,Email,Password) values (@login, @email, @password)";
+            string insertQuery = "insert into UserData (Id,Login,Email,Password, Permission) values (@ID, @login, @email, @password, @permission)";
             SqlCommand com = new SqlCommand(insertQuery, conn);
+            com.Parameters.AddWithValue("@ID", newGUID.ToString());
             com.Parameters.AddWithValue("@login", TextBoxLogin.Text);
             com.Parameters.AddWithValue("@email", TextBoxEmail.Text);
             com.Parameters.AddWithValue("@password", TextBoxPassword.Text);
+            com.Parameters.AddWithValue("@permission", "0");
 
             com.ExecuteNonQuery();
-            Response.Redirect("Admin.aspx");
+            Response.Redirect("Users.aspx", false);
             Response.Write("Zarejestrowano pomyślnie!");
 
             conn.Close();
