@@ -63,8 +63,12 @@
         }
         .login{
             float:right;
-            padding-right:10px;
-
+            padding-right:0px;
+            border:none;
+            background-color:none;
+        }
+        .tlo{
+            background-color:#DDDDDD;
         }
     </style>
 </head>
@@ -74,22 +78,24 @@
     
         <table  class="w-100">
             <tr>
-                <td colspan="3">
+                <td colspan="3" class="tlo">
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/EatFood/Login.aspx" CssClass="login">Zaloguj się</asp:HyperLink>
                     
                     <asp:Button ID="LogOut1" runat="server" Text="Wyloguj się"  CssClass="login" OnClick="LogOut1_Click" />
+
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/cart.png" CssClass="login" OnClick="ImageButton1_Click"/>
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
                 <td>
     
         <asp:Image ID="Image1" runat="server" Height="200px" Width="1200px" ImageUrl="~/Images/banner2.jpg" CssClass="auto-style3"/>
                 </td>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
                 <td class="text-center" >
         <asp:Label ID="Label1" runat="server" CssClass="auto-style1" Text="Restauracje"></asp:Label>
        
@@ -97,10 +103,10 @@
 ]"></asp:SqlDataSource>
        
                 </td>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
                 <td class="auto-style2" >
                   
                     <asp:DataList ID="DataList1" runat="server" DataKeyField="Id" DataSourceID="SqlDataSource1" RepeatColumns="1" RepeatLayout="Flow" OnItemCommand="DataList1_OnItemCommand">
@@ -129,18 +135,17 @@
                     </asp:DataList>
                   
                 </td>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>
+                <td class="tlo">&nbsp;</td>
+                <td class="tlo">
                    
                     &nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
             </tr>
             </table>
        
-        <br />
     
     </div>
     </form>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class EatFood_MainPage : System.Web.UI.Page
@@ -10,11 +11,15 @@ public partial class EatFood_MainPage : System.Web.UI.Page
         {
             HyperLink1.Visible = false;
             LogOut1.Visible = true;
+            ImageButton1.Visible = true;
+
         }
         else
         {
             HyperLink1.Visible = true;
             LogOut1.Visible = false;
+            ImageButton1.Visible = false;
+
         }
     }
 
@@ -38,12 +43,7 @@ public partial class EatFood_MainPage : System.Web.UI.Page
         }
     }
 
-    protected void LogOutA()
-    {
-        HyperLink1.Visible = true;
-        LogOut1.Visible = false;
-        Session.Clear();
-    }
+  
 
 
     protected void LogOut1_Click(object sender, EventArgs e)
@@ -51,5 +51,14 @@ public partial class EatFood_MainPage : System.Web.UI.Page
         HyperLink1.Visible = true;
         LogOut1.Visible = false;
         Session.Clear();
+        ImageButton1.Visible = false;
+
     }
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("Koszyk.aspx");
+    }
+
+   
 }

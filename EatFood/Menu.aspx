@@ -59,33 +59,47 @@
         .login{
             float:right;
             padding-right:10px;
+            border:none;
 
         }
-    </style>
+        .tlo{
+            background-color:#DDDDDD;
+        }
+         .auto-style2 {
+            width: 1000px;
+        }
+
+          .back-btn {
+            float:left;
+        }
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <div class="text-justify">
     
         <table  class="w-100">
             <tr>
-                <td colspan="3">
+                <td colspan="3" class="tlo">
                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/EatFood/Login.aspx" CssClass="login">Zaloguj się</asp:HyperLink>
 
                     <asp:Button ID="LogOut1" runat="server" Text="Wyloguj się"  CssClass="login" OnClick="LogOut1_Click" />
+
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/cart.png" CssClass="login" OnClick="ImageButton1_Click"/>
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
                 <td>
     
         <asp:Image ID="Image1" runat="server" Height="200px" Width="1200px" ImageUrl="~/Images/banner2.jpg" CssClass="auto-style3"/>
                 </td>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
                 <td class="text-center" >
+                    <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Images/back.png" CssClass="back-btn" OnClick="ImageButton2_Click" />
         <asp:Label ID="Label1" runat="server" CssClass="auto-style1" Text="MENU"></asp:Label>
        
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RegistrationConnectionString %>" SelectCommand="SELECT [nazwa], [cena], [opis], [Id] FROM [Dania] WHERE ([id_restauracji] = @id_restauracji)" DeleteCommand="DELETE FROM [Dania] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Dania] ([nazwa], [cena], [opis]) VALUES (@nazwa, @cena, @opis)" UpdateCommand="UPDATE [Dania] SET [nazwa] = @nazwa, [cena] = @cena, [opis] = @opis WHERE [Id] = @Id">
@@ -109,26 +123,13 @@
                     </asp:SqlDataSource>
        
                 </td>
-                <td>&nbsp;</td>
+                <td class="tlo">&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td >
+                <td class="tlo"></td>
+                <td class="auto-style2" >
                   
                   
-                    &nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                   
-                    &nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            </table>
-    
-    </div>
         <asp:DataList ID="DataList2" runat="server" DataKeyField="Id" DataSourceID="SqlDataSource1" OnItemCommand="DataList2_OnItemCommand">
             <ItemTemplate>
                 &nbsp;<asp:Label ID="nazwaLabel" runat="server" Text='<%# Eval("nazwa") %> ' CssClass="nazwa" />                
@@ -143,6 +144,19 @@
                 <br />
             </ItemTemplate>
         </asp:DataList>
+                </td>
+                <td class="tlo"></td>
+            </tr>
+            <tr>
+                <td class="tlo">&nbsp;</td>
+                <td class="tlo">
+                   
+                    &nbsp;</td>
+                <td class="tlo">&nbsp;</td>
+            </tr>
+            </table>
+    
+    </div>
     </form>
 </body>
 </html>

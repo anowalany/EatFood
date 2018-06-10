@@ -34,14 +34,20 @@ public partial class Login : System.Web.UI.Page
             string checkPermissionQuery = "select Permission from UserData where Login='" + TextBoxLog.Text + "'";
             SqlCommand perComm = new SqlCommand(checkPermissionQuery, conn);
             string permission = perComm.ExecuteScalar().ToString().Replace(" ", "");
-
+            
             //redirecting
             if (password == TextBoxPass.Text)
             {
                 Session["login"] = TextBoxLog.Text;
                 Session["permission"] = permission;
                 Response.Write("Hasło jest poprawne");
-                if(permission == "1")
+
+                string idquery = "select Id from UserData where Login = '" + TextBoxLog.Text + "'";
+                SqlCommand idqueryComm = new SqlCommand(idquery, conn);
+                var temp2 = idqueryComm.ExecuteScalar();
+                int idklient = Convert.ToInt32(temp2);
+                Session["idK"] = idklient;
+                if (permission == "1")
                 {
                     Response.Redirect("Admin.aspx", false);
                 }
