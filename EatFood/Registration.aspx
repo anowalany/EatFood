@@ -159,6 +159,15 @@
             </tr>
             <tr>
                 <td class="tlo">&nbsp;</td>
+                <td class="auto-style2" >
+                     <asp:Label ID="Label6" runat="server" Text="Adres: " CssClass="nazwa"></asp:Label>
+                   <asp:TextBox ID="TextBoxAdres" runat="server"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxLogin" ErrorMessage="Wprowadź adres" CssClass="warning"></asp:RequiredFieldValidator>                  
+                    </td>
+                <td class="tlo">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="tlo">&nbsp;</td>
                 <td class="link">
                       <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" style="text-align: center" Text="Zarejestruj" />
                     

@@ -37,13 +37,14 @@ public partial class Registration : System.Web.UI.Page
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationConnectionString"].ConnectionString);
             conn.Open();
-            string insertQuery = "insert into UserData (Login,Email,Password, Permission) values (@login, @email, @password, @permission)";
+            string insertQuery = "insert into UserData (Login,Email,Password, Permission, Adres) values (@login, @email, @password, @permission, @adres)";
             SqlCommand com = new SqlCommand(insertQuery, conn);
            // com.Parameters.AddWithValue("@ID", newGUID.ToString());
             com.Parameters.AddWithValue("@login", TextBoxLogin.Text);
             com.Parameters.AddWithValue("@email", TextBoxEmail.Text);
             com.Parameters.AddWithValue("@password", TextBoxPassword.Text);
             com.Parameters.AddWithValue("@permission", "0");
+            com.Parameters.AddWithValue("@adres", TextBoxAdres.Text);
 
             com.ExecuteNonQuery();
             Response.Redirect("Users.aspx", false);

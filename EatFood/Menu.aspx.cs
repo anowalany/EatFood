@@ -57,9 +57,9 @@ public partial class EatFood_Menu : System.Web.UI.Page
     {
         HyperLink1.Visible = true;
         LogOut1.Visible = false;
-        ImageButton1.Visible = false;
-
+        ImageButton1.Visible = false;       
         Session.Clear();
+        Response.Redirect("MainPage.aspx");
     }
 
 

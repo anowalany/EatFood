@@ -49,9 +49,10 @@ public partial class EatFood_MainPage : System.Web.UI.Page
     protected void LogOut1_Click(object sender, EventArgs e)
     {
         HyperLink1.Visible = true;
-        LogOut1.Visible = false;
-        Session.Clear();
+        LogOut1.Visible = false;        
         ImageButton1.Visible = false;
+        Session.Clear();
+        Response.Redirect("MainPage.aspx");
 
     }
 

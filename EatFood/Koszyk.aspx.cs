@@ -59,9 +59,9 @@ public partial class EatFood_Koszyk : System.Web.UI.Page
     {
         HyperLink1.Visible = true;
         LogOut1.Visible = false;
-        ImageButton1.Visible = false;
-
+        ImageButton1.Visible = false;        
         Session.Clear();
+        Response.Redirect("MainPage.aspx");
     }
 
     protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
@@ -69,15 +69,13 @@ public partial class EatFood_Koszyk : System.Web.UI.Page
         Response.Redirect("Koszyk.aspx");
     }
 
-    protected void Button_Login_Click(object sender, EventArgs e)
-    {
-
-    }
+   
 
 
 
     protected void OK_Click(object sender, EventArgs e)
     {
+            
         Response.Redirect("Delivery.aspx");
     }
 
