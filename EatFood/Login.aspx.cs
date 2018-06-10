@@ -47,7 +47,7 @@ public partial class Login : System.Web.UI.Page
                 }
                 else
                 {
-                    Response.Redirect("Users.aspx", false);
+                    Response.Redirect("MainPage.aspx", false);
                 }
                
             }
